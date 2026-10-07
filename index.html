@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171714">
+  <meta name="description" content="一個人也能做的足球帶球過人訓練：三個有明確目的、真人循環示範與劑量的練習。">
+  <title>敢把球留下來｜個人帶球過人訓練</title>
+  <style>
+    :root{
+      --ink:#171714; --ink2:#23231f; --paper:#f4efe4; --paper2:#e8e0d2;
+      --amber:#b4761e; --amber2:#e0a144; --muted:#6d685f; --line:#cfc4b3;
+      --green:#445c45; --white:#fffdf7;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--ink)}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:17px;line-height:1.78}
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+    .wrap{width:min(1120px,100%);margin:auto;padding:0 42px}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(23,23,20,.97);color:var(--paper);border-bottom:1px solid #3a3932}
+    .topbar .in{width:min(1120px,100%);margin:auto;padding:12px 42px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .brand{font-size:12px;font-weight:900;letter-spacing:.16em;color:var(--amber2)}
+    .topbar nav{display:flex;gap:18px;font-size:12px;color:#d8d0c3}
+    .topbar nav a{text-decoration:none}
+    .hero{background:var(--ink);color:var(--paper);padding:72px 0 62px;overflow:hidden;position:relative}
+    .hero:after{content:"1v1";position:absolute;right:-18px;bottom:-98px;font:900 260px/1 Arial,sans-serif;color:transparent;-webkit-text-stroke:1px #34342e;pointer-events:none}
+    .eyebrow{display:flex;align-items:center;gap:12px;color:var(--amber2);font-size:12px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:36px;height:3px;background:var(--amber2)}
+    h1{font-size:clamp(46px,7vw,88px);line-height:.98;letter-spacing:-.045em;margin:18px 0 24px;max-width:860px}
+    .hero .lead{font-family:"Noto Serif TC","Songti TC",serif;font-size:22px;line-height:1.65;color:#d8d0c3;max-width:750px;margin:0}
+    .hero .lead strong{color:var(--paper)}
+    .hero-meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+    .chip{border:1px solid #4b4940;padding:8px 12px;font-size:12px;color:#cfc6b7;background:#20201c}
+    .thesis{padding:54px 0 24px}
+    .thesis-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:start}
+    h2{font-size:34px;line-height:1.18;letter-spacing:-.025em;margin:0 0 18px}
+    .thesis p{margin:0 0 14px}
+    .truth{background:var(--white);border-left:5px solid var(--amber);padding:24px 25px;box-shadow:0 10px 30px rgba(35,28,20,.07)}
+    .truth b{display:block;color:var(--amber);font-size:12px;letter-spacing:.14em;margin-bottom:8px}
+    .truth p{margin:0;font-family:"Noto Serif TC","Songti TC",serif;font-size:19px;line-height:1.65}
+    .session{padding:42px 0 22px}
+    .session-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;border-top:1px solid var(--line);padding-top:36px}
+    .session-head p{margin:0;color:var(--muted);max-width:670px}
+    .total{background:var(--amber);color:var(--white);padding:15px 18px;min-width:146px}
+    .total .n{font:900 38px/1 Arial,sans-serif}
+    .total .t{font-size:11px;letter-spacing:.12em;margin-top:5px}
+    .drills{display:grid;gap:34px;margin-top:26px}
+    .drill{background:var(--white);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);overflow:hidden}
+    .media{background:#111;min-width:0;position:relative;align-self:stretch}
+    .media video{width:100%;height:100%;min-height:380px;object-fit:cover;display:block;background:#111}
+    .loop-label{position:absolute;left:14px;top:14px;background:rgba(23,23,20,.92);color:var(--paper);padding:6px 9px;font-size:10px;font-weight:800;letter-spacing:.12em;pointer-events:none}
+    .drill-body{padding:32px 30px 28px;min-width:0}
+    .drill-no{color:var(--amber);font:900 13px/1 Arial,sans-serif;letter-spacing:.13em}
+    .drill h3{font-size:30px;line-height:1.15;margin:9px 0 8px;letter-spacing:-.025em}
+    .purpose{color:var(--green);font-weight:800;margin-bottom:19px}
+    .dose{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+    .dose span{background:var(--paper);border:1px solid var(--line);padding:7px 10px;font-size:12px;font-weight:800}
+    .steps{padding:0;margin:16px 0 0;list-style:none;counter-reset:s}
+    .steps li{counter-increment:s;display:grid;grid-template-columns:29px 1fr;gap:9px;margin:11px 0;align-items:start}
+    .steps li:before{content:counter(s);display:grid;place-items:center;width:25px;height:25px;border-radius:50%;background:var(--ink);color:var(--paper);font:800 12px/1 Arial,sans-serif;margin-top:3px}
+    .cue{margin-top:17px;background:var(--ink);color:var(--paper);padding:15px 17px;font-size:15px}
+    .cue b{color:var(--amber2)}
+    .source{font-size:11.5px;color:var(--muted);margin-top:14px;line-height:1.5}
+    .diagram{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+    .diagram-title{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.13em;margin-bottom:7px}
+    svg.pitch{display:block;width:100%;height:auto;background:#304a36;border:6px solid #28402e}
+    .pitch .line{stroke:#d7dfd2;stroke-width:2;fill:none;opacity:.8}
+    .pitch .path{stroke:#f2c778;stroke-width:7;fill:none;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+    .pitch .path2{stroke:#fff4df;stroke-width:4;fill:none;stroke-dasharray:9 8;stroke-linecap:round;marker-end:url(#arrow2)}
+    .pitch .cone{fill:#f29b38;stroke:#562f0d;stroke-width:2}
+    .pitch .ball{fill:#f8f6ef;stroke:#161612;stroke-width:3}
+    .pitch text{font-family:"PingFang TC","Microsoft JhengHei",sans-serif;fill:#fff;font-size:15px;font-weight:700}
+    .pitch .small{font-size:12px;fill:#dfe7db}
+    .score-section{padding:64px 0;background:var(--ink);color:var(--paper);margin-top:62px}
+    .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .score-card{border:1px solid #414139;padding:25px;background:var(--ink2)}
+    .score-card h3{font-size:22px;margin:0 0 12px}
+    .score-card ul{padding-left:20px;margin:0;color:#d7d0c4}
+    .score-card li{margin:8px 0}
+    .meter{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+    .meter span{height:8px;background:#4c4a41}
+    .meter span.on{background:var(--amber2)}
+    .bridge{padding:62px 0}
+    .bridge-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:start}
+    .rule{border-top:4px solid var(--amber);padding-top:18px;font-family:"Noto Serif TC","Songti TC",serif;font-size:25px;line-height:1.5}
+    .triggers{display:grid;gap:12px}
+    .trigger{display:grid;grid-template-columns:76px 1fr;gap:16px;border-bottom:1px solid var(--line);padding:0 0 13px}
+    .trigger b{color:var(--amber);font-size:12px;letter-spacing:.1em}
+    .trigger p{margin:0}
+    .limit{margin-top:30px;padding:19px 21px;background:var(--paper2);border:1px solid var(--line)}
+    footer{background:#11110f;color:#a9a397;padding:38px 0;font-size:12px}
+    footer .credits{display:grid;gap:9px;margin-top:15px}
+    footer a{color:#d5cbbb}
+    .backtop{display:inline-block;margin-top:22px;color:var(--amber2)}
+    @media(max-width:820px){
+      body{font-size:16.5px;line-height:1.78}
+      .wrap{padding-left:18px;padding-right:18px}
+      .topbar .in{padding:11px 18px}
+      .topbar nav{display:none}
+      .hero{padding:52px 0 48px}
+      .hero:after{font-size:160px;bottom:-53px;right:-22px}
+      h1{font-size:46px;line-height:1.03}
+      .hero .lead{font-size:19px}
+      .hero-meta{display:grid;grid-template-columns:1fr 1fr;width:100%}
+      .chip{text-align:center}
+      .thesis-grid,.session-head,.drill,.score-grid,.bridge-grid{grid-template-columns:1fr}
+      .total{width:max-content}
+      h2{font-size:29px}
+      .drill-body{padding:25px 20px 24px}
+      .drill h3{font-size:27px}
+      .media video{min-height:0;aspect-ratio:16/9;object-fit:cover}
+      .score-section{padding:48px 0}
+      .bridge{padding:48px 0}
+      .rule{font-size:22px}
+      .trigger{grid-template-columns:68px 1fr}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="in">
+      <div class="brand">SOLO DRIBBLING LAB</div>
+      <nav aria-label="頁面導覽">
+        <a href="#why">判斷</a><a href="#session">20 分鐘課表</a><a href="#score">進步標準</a><a href="#match">帶進比賽</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">個人足球訓練</div>
+        <h1>敢把球<br>留在腳下</h1>
+        <p class="lead">你不缺傳球與停球。真正要補的是：<strong>主動逼近防守者、讓他失去重心，再用第一步加速離開。</strong></p>
+        <div class="hero-meta">
+          <span class="chip">1 顆球</span><span class="chip">6～8 個標誌物</span><span class="chip">每次 20 分鐘</span><span class="chip">每週 2～3 次</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="thesis" id="why">
+      <div class="wrap thesis-grid">
+        <div>
+          <h2>重新拆解：過人不是「腳下花招」</h2>
+          <p>你在壓力下太快把球傳掉，表示比賽裡缺少的不是基本控球，而是一次成功的攻擊鏈：<strong>帶向防守者 → 逼他表態 → 改變線路 → 爆發離開。</strong></p>
+          <p>一個人不能練到「讀懂真人防守者」，但可以把這條鏈的三個可控部分練到不必思考。下面只留三個練習，每個都對應一個明確能力，不做長串繞角錐。</p>
+        </div>
+        <aside class="truth">
+          <b>核心判斷</b>
+          <p>如果過完角錐後沒有三步加速，那不是過人訓練，只是控球練習。</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="session" id="session">
+      <div class="wrap">
+        <div class="session-head">
+          <div>
+            <div class="eyebrow" style="color:var(--amber)">每週 2～3 次</div>
+            <h2>一套 20 分鐘課表</h2>
+            <p>先把動作做對，再提高接近速度。每次都要左右兩側平均；強腳不是多做，弱腳也不是慢慢敷衍。</p>
+          </div>
+          <div class="total"><div class="n">20</div><div class="t">分鐘／一次</div></div>
+        </div>
+
+        <div class="drills">
+          <article class="drill">
+            <div class="media">
+              <video poster="clips/body-feint.jpg" autoplay muted loop playsinline preload="metadata" aria-label="真人示範帶球接近中央角錐、身體假動作後斜向加速離開"><source src="clips/body-feint.webm" type="video/webm"><source src="clips/body-feint.mp4" type="video/mp4"></video>
+              <span class="loop-label">真人循環示範</span>
+            </div>
+            <div class="drill-body">
+              <div class="drill-no">DRILL 01 · 6 MIN</div>
+              <h3>單一防守者：身體假動作</h3>
+              <div class="purpose">練「我敢朝他帶過去」，而不是提早繞開。</div>
+              <div class="dose"><span>左右各 8 次</span><span>2 組</span><span>組間休 30 秒</span></div>
+              <ol class="steps">
+                <li>起點離中央角錐約 5 公尺，帶球正面接近。</li>
+                <li>距離角錐約 1.5 公尺時，肩膀、膝蓋和眼神一起壓向假方向。</li>
+                <li>另一腳外腳背把球推向反方向約 45°。</li>
+                <li>過角錐後全速跑三步，再收球回到起點。</li>
+              </ol>
+              <div class="cue"><b>成功標準：</b>角錐沒有被碰到；出球後不需要多補一腳，第三步已經跑到球旁。</div>
+              <div class="diagram">
+                <div class="diagram-title">俯視設置｜橘色＝防守者，金線＝帶球路徑</div>
+                <svg class="pitch" viewBox="0 0 500 240" role="img" aria-label="從下方起點帶向中央防守角錐，假動作後向左右四十五度離開">
+                  <defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#f2c778"/></marker><marker id="arrow2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#fff4df"/></marker></defs>
+                  <rect x="10" y="10" width="480" height="220" class="line"/><line x1="250" y1="10" x2="250" y2="230" class="line" opacity=".35"/>
+                  <circle cx="250" cy="203" r="10" class="ball"/><text x="269" y="209">起點</text>
+                  <path d="M250 190 C250 160,250 138,250 115 C238 100,205 78,158 48" class="path"/>
+                  <path d="M250 112 C263 98,300 73,346 48" class="path2"/>
+                  <path d="M250 108 l-10 -22 h20 z" class="cone"/><text x="273" y="96">假想防守者</text>
+                  <text x="126" y="35" class="small">左側出口</text><text x="334" y="35" class="small">右側出口</text>
+                </svg>
+              </div>
+              <p class="source">示範來源：7mlc，〈5 Close Control Dribbling Drills For Footballers〉短片段。<br><a href="https://www.youtube.com/watch?v=QqjaavLXdHs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=QqjaavLXdHs</a></p>
+            </div>
+          </article>
+
+          <article class="drill">
+            <div class="media">
+              <video poster="clips/lane-switch.jpg" autoplay muted loop playsinline preload="metadata" aria-label="真人示範帶球接近角錐組、橫向換線後加速穿出"><source src="clips/lane-switch.webm" type="video/webm"><source src="clips/lane-switch.mp4" type="video/mp4"></video>
+              <span class="loop-label">真人循環示範</span>
+            </div>
+            <div class="drill-body">
+              <div class="drill-no">DRILL 02 · 7 MIN</div>
+              <h3>切到弱側：橫向換線</h3>
+              <div class="purpose">練的不是華麗動作，而是把球從防守者正面移到他髖部外側。</div>
+              <div class="dose"><span>左右各 6 次</span><span>2 組</span><span>每次全速離開</span></div>
+              <ol class="steps">
+                <li>用兩個角錐做一道約 1.5 公尺寬的「防守者門」，起點離門 5 公尺。</li>
+                <li>正對門中央接近，前段速度約六成，球保持在一步之內。</li>
+                <li>到門前，支撐腳大幅踩向一側，另一腳把球橫推到角錐外側。</li>
+                <li>身體跟球一起移動，不要只把球橫撥；穿過後加速 5 公尺。</li>
+              </ol>
+              <div class="cue"><b>成功標準：</b>球與身體一起越過角錐外側；不是人留在中間、球單獨跑出去。</div>
+              <div class="diagram">
+                <div class="diagram-title">俯視設置｜兩個橘錐代表防守者的身體寬度</div>
+                <svg class="pitch" viewBox="0 0 500 240" role="img" aria-label="正面帶向兩個角錐，在門前橫向換線並從角錐外側加速穿出">
+                  <defs><marker id="arrow-b" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#f2c778"/></marker></defs>
+                  <rect x="10" y="10" width="480" height="220" class="line"/>
+                  <circle cx="250" cy="204" r="10" class="ball"/><text x="268" y="210">起點</text>
+                  <path d="M250 191 C250 161,250 137,250 115 C267 102,305 91,345 79 C371 70,390 53,402 35" style="stroke:#f2c778;stroke-width:7;fill:none;stroke-linecap:round;marker-end:url(#arrow-b)"/>
+                  <path d="M210 112 l-10 -22 h20 z" class="cone"/><path d="M290 112 l-10 -22 h20 z" class="cone"/>
+                  <text x="182" y="79" class="small">防守者寬度</text><text x="351" y="109">弱側</text>
+                  <line x1="210" y1="122" x2="290" y2="122" class="line"/><text x="222" y="145" class="small">約 1.5 m</text>
+                </svg>
+              </div>
+              <p class="source">示範來源：7mlc，〈This Simple Fix Could Level Up Your One v One Dribbling〉短片段。畫面多出的一個標誌碟是回程定位，不是第三名防守者。<br><a href="https://www.youtube.com/watch?v=oJnIMTatpIE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=oJnIMTatpIE</a></p>
+            </div>
+          </article>
+
+          <article class="drill">
+            <div class="media">
+              <video poster="clips/multi-angle.jpg" autoplay muted loop playsinline preload="metadata" aria-label="真人示範從外圍帶入中央方框、做欺騙動作、從不同方向離開並繞回"><source src="clips/multi-angle.webm" type="video/webm"><source src="clips/multi-angle.mp4" type="video/mp4"></video>
+              <span class="loop-label">真人循環示範</span>
+            </div>
+            <div class="drill-body">
+              <div class="drill-no">DRILL 03 · 7 MIN</div>
+              <h3>多方向串接：進去、騙、逃走</h3>
+              <div class="purpose">把一次過人接回下一次處理，避免做完動作就停在原地。</div>
+              <div class="dose"><span>四個方向＝1 輪</span><span>做 4 輪</span><span>輪間休 30 秒</span></div>
+              <ol class="steps">
+                <li>中央做一個約 2×2 公尺方框，四個方向各放一個外圍角錐，離方框約 3 公尺。</li>
+                <li>從外圍帶進中央；進框前才決定使用身體假動作或腳尖拖步。</li>
+                <li>必須從相鄰的一側離開，不能原路退出。</li>
+                <li>繞過該側外圍角錐，再帶回中央，連續完成四個方向。</li>
+              </ol>
+              <div class="cue"><b>成功標準：</b>每次進中央都抬頭一次；離開方框的第一腳明顯大於進框前的小觸球。</div>
+              <div class="diagram">
+                <div class="diagram-title">俯視設置｜中央是交鋒區，外圍角錐迫使你接續下一個方向</div>
+                <svg class="pitch" viewBox="0 0 500 240" role="img" aria-label="中央小方框與四個外圍角錐，球員從外圍進入中央後從相鄰側離開並繞回">
+                  <defs><marker id="arrow-c" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#f2c778"/></marker></defs>
+                  <rect x="10" y="10" width="480" height="220" class="line"/>
+                  <path d="M250 210 C250 182,250 164,250 146 C250 126,282 120,316 120 C362 120,401 92,414 56" style="stroke:#f2c778;stroke-width:7;fill:none;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-c)"/>
+                  <rect x="210" y="85" width="80" height="70" class="line" fill="none"/>
+                  <path d="M210 96 l-8 -18 h16 z" class="cone"/><path d="M290 96 l-8 -18 h16 z" class="cone"/><path d="M210 164 l-8 -18 h16 z" class="cone"/><path d="M290 164 l-8 -18 h16 z" class="cone"/>
+                  <path d="M250 36 l-9 -20 h18 z" class="cone"/><path d="M428 128 l-9 -20 h18 z" class="cone"/><path d="M250 226 l-9 -20 h18 z" class="cone"/><path d="M72 128 l-9 -20 h18 z" class="cone"/>
+                  <circle cx="250" cy="198" r="9" class="ball"/><text x="303" y="105">欺騙</text><text x="352" y="143">逃出</text>
+                </svg>
+              </div>
+              <p class="source">示範來源：7mlc，〈Improve Your Dribbling｜5 Exercises To Enhance Dribbling Ability〉短片段。影片示範使用 toe drag；你的第一輪先用 Drill 01 的身體假動作即可。<br><a href="https://www.youtube.com/watch?v=GtK8pK8Drus" target="_blank" rel="noopener">https://www.youtube.com/watch?v=GtK8pK8Drus</a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="score-section" id="score">
+      <div class="wrap">
+        <div class="eyebrow">不要只憑感覺</div>
+        <h2 style="margin-top:14px">怎樣才算真的進步？</h2>
+        <div class="score-grid">
+          <div class="score-card">
+            <h3>每週固定測 10 次</h3>
+            <ul>
+              <li>左右各 5 次攻擊中央角錐。</li>
+              <li>完整假動作、沒有撞錐：1 分。</li>
+              <li>出球後三步內追上球：1 分。</li>
+              <li>滿分 20；連兩週達 16 分，再提高接近速度。</li>
+            </ul>
+            <div class="meter" aria-hidden="true"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+          </div>
+          <div class="score-card">
+            <h3>錯誤不是「球掉了」而已</h3>
+            <ul>
+              <li>太早繞開：你沒有逼防守者做決定。</li>
+              <li>假動作只有腳：肩膀與重心沒有說謊。</li>
+              <li>出球太短：你沒有創造分離。</li>
+              <li>出球太長：你把下一腳送給防守者。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bridge" id="match">
+      <div class="wrap bridge-grid">
+        <div>
+          <div class="eyebrow" style="color:var(--amber)">帶進比賽</div>
+          <div class="rule">下一場不要要求自己過三個人。只要求：前方有空間時，先帶三腳，再決定傳不傳。</div>
+        </div>
+        <div class="triggers">
+          <div class="trigger"><b>可以帶</b><p>防守者離你超過約 2 公尺、正在後退，或你前方有 3～5 公尺空間。</p></div>
+          <div class="trigger"><b>可以過</b><p>你正面逼近後，他的髖部已經轉向或重心明顯壓到一側。</p></div>
+          <div class="trigger"><b>該傳球</b><p>對手正面站穩、距離很近，而且身後已有第二名防守者補位。這不是膽小，是正確判斷。</p></div>
+          <div class="limit"><strong>個人訓練的上限：</strong>它能讓動作和加速變成反射，但不能教你讀真人的腳步與出腳時機。要跨過最後一層，仍需要五成強度的 1 對 1 或小場比賽；個人練習不是替代品，而是讓你進入對抗時有武器可用。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong style="color:var(--paper)">影片來源與使用說明</strong>
+      <div class="credits">
+        <a href="https://www.youtube.com/watch?v=QqjaavLXdHs" target="_blank" rel="noopener">7mlc｜5 Close Control Dribbling Drills For Footballers</a>
+        <a href="https://www.youtube.com/watch?v=oJnIMTatpIE" target="_blank" rel="noopener">7mlc｜This Simple Fix Could Level Up Your One v One Dribbling</a>
+        <a href="https://www.youtube.com/watch?v=GtK8pK8Drus" target="_blank" rel="noopener">7mlc｜Improve Your Dribbling</a>
+      </div>
+      <p>頁內循環影片為帶出動作重點的短片段，保留原始來源連結，供個人訓練參考。若要拿去商業公開使用，應改用自行拍攝或已取得授權的素材。</p>
+      <a class="backtop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">回到頂端 ↑</a>
+    </div>
+  </footer>
+  <script>
+    document.querySelectorAll('video').forEach(v => {
+      v.addEventListener('click', () => v.paused ? v.play() : v.pause());
+      v.addEventListener('error', () => v.closest('.media').classList.add('video-error'));
+    });
+  </script>
+</body>
+</html>
